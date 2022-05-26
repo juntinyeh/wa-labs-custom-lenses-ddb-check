@@ -6,6 +6,15 @@ weight: 2
 pre: "<b>2. </b>"
 ---
 
+
+In DynamoDB Configuration Checks example we had covered following pillars:
+* Operational Excellence
+* Security 
+* Performance
+* Cost Optimization 
+
+Which you can see the defined pillar can be flexible to fit with your workload domain.
+
 The Operational Excellence Pillar aligned with AWS Well-Architected Framework, which aiming to ...(please finish this introducton)
 
 In this pillar we had following questions to help to understand how they operate their DynamoDB:

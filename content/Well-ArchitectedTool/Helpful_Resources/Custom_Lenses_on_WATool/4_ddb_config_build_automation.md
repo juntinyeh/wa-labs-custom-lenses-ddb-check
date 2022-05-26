@@ -9,7 +9,8 @@ weight: 3
 The Performance Efficiency will focus on more application usage and configuration, access patterns toward DynamoDB Tables.
 
 
-* Question 1:
+* Question 1: Do you have any cache stretagy for DynamoDB table?
+  
 
 * Question 2:
 
