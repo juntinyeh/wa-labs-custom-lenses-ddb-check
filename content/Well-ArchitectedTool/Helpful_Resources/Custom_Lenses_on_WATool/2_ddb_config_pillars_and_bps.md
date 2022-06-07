@@ -17,9 +17,11 @@ Which you can see the defined pillar can be flexible to fit with your workload d
 
 The Operational Excellence Pillar aligned with AWS Well-Architected Framework, which aiming to ...(please finish this introducton)
 
-In this pillar we had following questions to help to understand how they operate their DynamoDB:
+== Operational Excellence==
 
-* Question 1:
+* Question 1: How do you backup DynamoDB tables?
+- With proper backup process, you will be able to prevent unexpected data lost. Since DynamoDB already support different backup solutions like DynamoDB PITR(Point-in-time Recovery), or through AWS Backup. To make sure a well defined backup standard will help to reduce manual operational effort. 
+- An following question after this will be: Do you have any process to validate the backup, and test the backup?
 
 * Question 2:
 
