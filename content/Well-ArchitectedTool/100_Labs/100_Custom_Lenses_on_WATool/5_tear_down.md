@@ -2,8 +2,8 @@
 title: "Tear down this lab"
 date: 2020-04-24T11:16:09-04:00
 chapter: false
-pre: "<b>6. </b>"
-weight: 6
+pre: "<b>5. </b>"
+weight: 5
 ---
 
 In order to take down the lab environment, you simply delete the workload and the custom lens you created.

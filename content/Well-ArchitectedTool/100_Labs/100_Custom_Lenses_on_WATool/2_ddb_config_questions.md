@@ -15,7 +15,22 @@ Take DynamoDB as example, operating team and development team want to make sure 
 
 Since we are going to setup a check item in operating procedure, we decided to put this question into one custom pillar - *Operating Readiness*.
 
+After we collect feedback from customer, we want to have our first question related to backup procedure toward DynamoDB table.
+
 #### How to backup your data in DynamoDB table?
+
+In the follow example you can see, we have an unique id assigned for this question. And the **Title** will be the  question sentense bring up all the best practices.
+
+```
+...
+         "questions":[
+            {
+               "id":"ddbops1",
+               "title":"How do you backup DynamoDB tables?",
+               "description":"With proper backup process, you will be able to prevent unexpected data lost.",
+               "choices":[
+
+```
 
 Reference on [Amazon DynamoDB Developer Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/), we found a clear guidance on [Backing Up a DynamoDB Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Backup.Tutorial.html) providing two options: *Create a table backup from Console* and *Create a Table backup from CLI*. These two options were both require manual process. 
 So here we have one "Choice" been appended:
@@ -33,13 +48,13 @@ In some cases, we found out the operating team could use Amazon DynamoDB [Data E
 
 `Export DynamoDB to other storage media` 
 
-After researching and collecting all the related data for this questions, the lens JSON now will looks like this:
+After researching and collecting all the related data for this questions, the structure for this question now will looks like this:
 
 ```
 .....
                    "choices": [
                         {
-                            "id": "choice1",
+                            "id": "ddbops_1",
                             "title": "Manually trigger Amazon DynamoDB Backup process",
                             ...
                             },
@@ -48,17 +63,17 @@ After researching and collecting all the related data for this questions, the le
                             }
                         },
                         {
-                            "id": "choice2",
+                            "id": "ddbops_2",
                             "title": "Enable Amazon DynamoDB PITR Feature",
                             ...
                         },
                         {
-                            "id": "choice3",
+                            "id": "ddbops_3",
                             "title": "Use AWS Backup for Amazon DynamoDB tabls",
                             ...
                         },
                         {
-                            "id": "choice4",
+                            "id": "ddbops_4",
                             "title": "Export DynamoDB to other storage media",
                             ...
                         }
@@ -67,7 +82,9 @@ After researching and collecting all the related data for this questions, the le
 
 ```
 
-And, we put an default one to cover some cases not really apply with these options. 
+In here, you can see we assigned an ***unique choice id*** for each choice in this question. The id cannot be duplicated in this whole lens structure, and in next step we will explain how to setup the logic and risk level for AWS Well-Architected Tool. 
+
+In some case, we need to setup an default option if there is none of options been selected. 
 
 ```
                         {

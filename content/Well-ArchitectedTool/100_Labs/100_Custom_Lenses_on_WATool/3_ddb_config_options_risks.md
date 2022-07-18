@@ -15,7 +15,7 @@ Thus, we list out all the available choices we defined in previous step, and fil
 
 #### Rule Collections
 
-Reference to [Custom Lenses Format Specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html), we can see all the RiskRule are combinations of "id of choices" and "***AND(&&)/OR(||)/NOT(!)***". Then we start to assign unique id for each choice, and define the risk level respectively.
+Reference to [Custom Lenses Format Specification](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html), we can see all the RiskRule are combinations of "choice id" and operators - Here we need to make sure there is no duplication among choice id, and define the risk level for each option respectively.
 
 
 ||Choice|Risk Level if not applied.|Choices[]["id"]|
@@ -28,9 +28,9 @@ Reference to [Custom Lenses Format Specification](https://docs.aws.amazon.com/we
 
 #### Rule Conditions:
 
-And then start to create a logical rule for this question:
+Now, to create a logical rule for this question:
 
-* If every choice were already been applied, it will have no risk. 
+* If the rule require every choice must to be applied, then the condition rule will include 4 options been selected for **"NO_RISK"** as result. In this case the operator **"&&"** will be applied.
 
 ```
 	{	
@@ -39,7 +39,7 @@ And then start to create a logical rule for this question:
      }
 ```
 
-* Or we can setup as, one of the choice been applied, we can see it as no risk.
+* Or we can set as if any of the choices been applied, it can be seen as no risk, then the condition rule will looks like this.
 
 ```
 	{	
@@ -47,7 +47,10 @@ And then start to create a logical rule for this question:
      "risk":"NO_RISK"
      }
 ```
-* When we want to put some rule into higher priority, use the "OR" operator will cover border condition. If the "None of Above" was checked, or one specific choice should be aligned, then we should setup the condition to raise "HIGH_RISK".
+
+* When we want to put some rule into higher priority, use the "OR" operator will cover border condition. 
+
+If the "None of Above" (ddbops1_5) was checked, or one specific choice should be aligned, then we should setup the condition to raise "HIGH_RISK".
 
 ```
 
